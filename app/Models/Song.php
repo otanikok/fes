@@ -9,12 +9,17 @@ class Song extends Model
 {
     use HasFactory;
     
+    protected $fillable = ['name','artist_id',];
+    
     public function festivals(){
-        //フェスには複数のアーティストが出演している
         return $this->belongsToMany(Festival::class);
     }
     public function artist()
-{
+    {
     return $this->belongsTo(Artist::class);
-}
+    }
+public function setlist()
+    {
+        return $this->belongsTo(Setlist::class);
+    }
 }
