@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Festival extends Model
 {
     use HasFactory;
+    protected $fillable = ['name','overview','date',];
     
     public function artists(){
         //フェスには複数のアーティストが出演している

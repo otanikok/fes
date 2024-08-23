@@ -11,4 +11,12 @@ class ArtistController extends Controller
         $artist = Artist::with('songs')->where('id',$artist_id)->first();
         return view('artists.show')->with(['artist'=>$artist]);
     }
+    public function create(){
+        return view('artists.create');
+    }
+    public function store(Request $request,Artist $artist){
+        $input_artist =$request['artist'];
+        $artist->fill($input_artist)->save();
+        return redirect('/artist/'.$artist->id);
+    }
 }
